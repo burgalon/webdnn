@@ -64,8 +64,8 @@ class Deconvolution2D(Operator):
                 f"w.shape_dict[Axis.C]={w.shape_dict[Axis.C]}"
 
         N = x.shape_dict[Axis.N]
-        H2 = (x.shape_dict[Axis.H] - 1) * self.SH - 2 * self.PH + self.KH
-        W2 = (x.shape_dict[Axis.W] - 1) * self.SW - 2 * self.PW + self.KW
+        H2 = (x.shape_dict[Axis.H] - 1) * self.SH - 2 * self.PH + self.KH + 1
+        W2 = (x.shape_dict[Axis.W] - 1) * self.SW - 2 * self.PW + self.KW + 1
         C2 = w.shape_dict[Axis.N]
 
         y = Variable([N, H2, W2, C2], OrderNHWC)
